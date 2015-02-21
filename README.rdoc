@@ -1,0 +1,11 @@
+== Readme
+
+unpublished(by now) service to find bus/train/airplane tickets in Europe.
+
+You want to go _somewhere_ ? Just pass your location, date, max price for ticket and get results!
+
+Currently searching only for StudentAgency buses.
+
+Currently it parses tons of html pages for one query, and definitely it is bad solution - StudentAgency gives captcha after several queries. I'm looking for other way to get information.
+
+Just a prototype - no styles, no tests - nothing.

@@ -1,0 +1,49 @@
+form action = search_path
+  |From:
+  br 
+  select name="search[from]"
+    - @locations.each do |loc|
+      option selected=("selected" if loc[0]==@search.from) value = loc[0]
+        = loc[1]
+  br
+  |Date format: YYYY-MM-DD
+  br
+  input type='text' placeholder="Date" name='search[date]' value = @search.date
+  br
+  |Passengers:
+  br
+  input type="number" value=1 min=1 name='search[passengers]'
+  br
+  |hide full
+  = check_box "search", 'hide_full'
+  br
+  |Max price(kč)
+  br
+  input type="number" min=1 name='search[max_price]' value=@search.max_price
+  br
+  button type='submit'
+    |SEARCH!
+
+table
+  thead
+    th
+      |Agency
+    th
+      |City
+    th
+      |Dep.time
+    th
+      |Arr.time
+    th
+      |Free
+    th
+      |Price
+  tbody
+    - @results.each do |link|
+      tr
+        td =link.provider.name
+        td =link.city
+        td =link.departure
+        td =link.arrival
+        td =link.free
+        td =link.price
